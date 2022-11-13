@@ -8,7 +8,7 @@ import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import ChatIcon from "@mui/icons-material/Chat";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import photo from "./assets/PHOTO.jpeg";
+// import photo from "./assets/PHOTO.jpeg";
 
 function Header() {
   return (
@@ -18,7 +18,7 @@ function Header() {
 
         <div className="header__search">
           <SearchIcon />
-          <input type="text" />
+          <input placeholder="search" type="text" />
         </div>
       </div>
 
