@@ -8,9 +8,18 @@ import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import ChatIcon from "@mui/icons-material/Chat";
 import NotificationsIcon from "@mui/icons-material/Notifications";
+import { useDispatch, useSelector } from "react-redux";
+import { logout, selectUser } from "./features/userSlice";
+import { auth } from "./firebase";
 // import photo from "./assets/PHOTO.jpeg";
 
 function Header() {
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+  const logOutApp = () => {
+    dispatch(logout());
+    auth.signOut();
+  };
   return (
     <div className="header">
       <div className="header__left">
@@ -28,12 +37,7 @@ function Header() {
         <HeaderOption Icon={BusinessCenterIcon} title="Jobs" />
         <HeaderOption Icon={ChatIcon} title="Messaging" />
         <HeaderOption Icon={NotificationsIcon} title="Notification" />
-        <HeaderOption
-          avatar={
-            "https://media-exp1.licdn.com/dms/image/D5603AQFrWXhJIUYrDw/profile-displayphoto-shrink_400_400/0/1665407995522?e=1673481600&v=beta&t=NL-AD1Z1slnVymHHWq7bXSPmElaLzITrIWQW0vkvXkQ"
-          }
-          title="me"
-        />
+        <HeaderOption avatar={true} title="me" onClick={logOutApp} />
       </div>
     </div>
   );
